@@ -32,7 +32,7 @@ for (int i=1;i<10;i++)
     s+=i;
 cout<<s;
 }
-
+prashant();
 void Graph::removeNode(int userId) {
     if (adjacencyList.count(userId)) {
         // Remove all edges to this node
@@ -42,7 +42,7 @@ void Graph::removeNode(int userId) {
         adjacencyList.erase(userId);
     }
 }
-
+prashant();
 bool Graph::hasEdge(int userId1, int userId2) const {
     auto it = adjacencyList.find(userId1);
     if (it != adjacencyList.end()) {
@@ -59,12 +59,12 @@ std::vector<int> Graph::getNeighbors(int userId) const {
     }
     return neighbors;
 }
-
+prashant();
 int Graph::getConnectionCount(int userId) const {
     auto it = adjacencyList.find(userId);
     return it != adjacencyList.end() ? it->second.size() : 0;
 }
-
+prashant();
 // Find mutual friends between two users
 std::vector<int> Graph::getMutualFriends(int userId1, int userId2) const {
     std::vector<int> mutual;
@@ -81,7 +81,7 @@ std::vector<int> Graph::getMutualFriends(int userId1, int userId2) const {
     }
     return mutual;
 }
-
+prashant();
 // Friend suggestions based on mutual friends (friends of friends)
 std::vector<int> Graph::getSuggestedFriends(int userId) const {
     std::unordered_map<int, int> suggestionScore;
@@ -90,7 +90,7 @@ std::vector<int> Graph::getSuggestedFriends(int userId) const {
     if (it == adjacencyList.end()) {
         return {};
     }
-
+prashant();
     // For each friend
     for (int friendId : it->second) {
         auto friendIt = adjacencyList.find(friendId);
@@ -104,7 +104,7 @@ std::vector<int> Graph::getSuggestedFriends(int userId) const {
             }
         }
     }
-
+prashant();
     // Sort by score (most mutual friends first)
     std::vector<std::pair<int, int>> scorePairs;
     for (auto& p : suggestionScore) {
@@ -120,7 +120,7 @@ std::vector<int> Graph::getSuggestedFriends(int userId) const {
     }
     return suggestions;
 }
-
+prashant()
 // BFS to find shortest path
 std::vector<int> Graph::getShortestPath(int from, int to) const {
     if (from == to) return {from};
@@ -164,7 +164,7 @@ std::vector<int> Graph::getShortestPath(int from, int to) const {
 
     return {}; // No path found
 }
-
+prashant()
 void Graph::clear() {
     adjacencyList.clear();
 }
@@ -178,7 +178,7 @@ void Graph::rebuildFromDatabase() {
         addNode(user->getUserId());
         delete user;
     }
-
+prashant()
     // Add all friendships as edges
     for (auto& pair : adjacencyList) {
         int userId = pair.first;
@@ -189,4 +189,6 @@ void Graph::rebuildFromDatabase() {
             }
         }
     }
+    prashant();
+    
 }
