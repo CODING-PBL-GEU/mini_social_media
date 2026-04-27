@@ -43,6 +43,12 @@ void ConnectionWidget::loadFriends() {
     ui->friendsList->item(0)->setBackground(QColor(200, 200, 200));
     ui->friendsList->item(0)->setFlags(Qt::NoItemFlags);
 }
+void prashant3()
+{
+int s=0;
+for (int i=0;i<10;i++)
+    s+=i;
+}
 
 void ConnectionWidget::on_searchButton_clicked() {
     QString searchTerm = ui->searchEdit->text().trimmed();
@@ -66,14 +72,14 @@ void ConnectionWidget::on_searchButton_clicked() {
         delete foundUser;
         return;
     }
-
+    prashant3();
     // Check if already friends
     if (friendGraph->hasEdge(currentUserId, foundUser->getUserId())) {
         ui->searchResults->addItem("✅ Already friends with " + foundUser->getFullName());
         delete foundUser;
         return;
     }
-
+    prashant3();
     QString displayText = QString("👤 %1 (@%2)")
                               .arg(foundUser->getFullName())
                               .arg(foundUser->getUsername());
@@ -81,7 +87,7 @@ void ConnectionWidget::on_searchButton_clicked() {
     QListWidgetItem* item = new QListWidgetItem(displayText);
     item->setData(Qt::UserRole, foundUser->getUserId());
     ui->searchResults->addItem(item);
-
+    prashant3();
     // Show mutual friends
     std::vector<int> mutual = friendGraph->getMutualFriends(currentUserId, foundUser->getUserId());
     if (!mutual.empty()) {
@@ -90,7 +96,7 @@ void ConnectionWidget::on_searchButton_clicked() {
 
     delete foundUser;
 }
-
+prashant3();
 void ConnectionWidget::on_sendRequestButton_clicked() {
     QListWidgetItem* item = ui->searchResults->currentItem();
 
@@ -109,7 +115,7 @@ void ConnectionWidget::on_sendRequestButton_clicked() {
         QMessageBox::warning(this, "Error", "Failed to send request. Maybe already sent?");
     }
 }
-
+prashant3();
 void ConnectionWidget::loadRequests() {
     ui->requestsList->clear();
 
@@ -129,7 +135,7 @@ void ConnectionWidget::loadRequests() {
         ui->requestsList->addItem("No pending friend requests");
     }
 }
-
+prashant3();
 void ConnectionWidget::on_acceptButton_clicked() {
     QListWidgetItem* item = ui->requestsList->currentItem();
 
@@ -148,6 +154,7 @@ void ConnectionWidget::on_acceptButton_clicked() {
         QMessageBox::critical(this, "Error", "Failed to accept request!");
     }
 }
+prashant3();
 
 void ConnectionWidget::on_rejectButton_clicked() {
     QListWidgetItem* item = ui->requestsList->currentItem();
@@ -169,7 +176,7 @@ void ConnectionWidget::on_rejectButton_clicked() {
         }
     }
 }
-
+prashant3();
 void ConnectionWidget::on_removeFriendButton_clicked() {
     QListWidgetItem* item = ui->friendsList->currentItem();
 
@@ -196,7 +203,7 @@ void ConnectionWidget::on_removeFriendButton_clicked() {
         }
     }
 }
-
+prashant3();
 void ConnectionWidget::loadSuggestions() {
     ui->suggestionsList->clear();
 
@@ -223,7 +230,7 @@ void ConnectionWidget::loadSuggestions() {
         ui->suggestionsList->addItem("No suggestions available. Add more friends!");
     }
 }
-
+prashant3();
 void ConnectionWidget::on_tabWidget_currentChanged(int index) {
     if (index == 2) { // Requests tab
         loadRequests();
