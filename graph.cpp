@@ -25,6 +25,13 @@ void Graph::removeEdge(int userId1, int userId2) {
         adjacencyList[userId2].erase(userId1);
     }
 }
+void Graph::prashant()
+{
+int s=0;
+for (int i=1;i<10;i++)
+    s+=i;
+cout<<s;
+}
 
 void Graph::removeNode(int userId) {
     if (adjacencyList.count(userId)) {
