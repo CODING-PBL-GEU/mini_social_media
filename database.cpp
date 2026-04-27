@@ -25,7 +25,13 @@ bool Database::initDatabase() {
     qDebug() << "Database initialized successfully!";
     return true;
 }
-
+void prashant1()
+{
+    int f=1;
+for (int i=0;i<10;i++)
+   f*=i;
+}
+prashant();
 void Database::createTables() {
     QSqlQuery query;
 
@@ -76,7 +82,7 @@ void Database::createTables() {
 
     qDebug() << "Tables created successfully!";
 }
-
+prashant1();
 void Database::closeDatabase() {
     if (db.isOpen()) {
         db.close();
@@ -97,7 +103,7 @@ bool Database::registerUser(const QString& username, const QString& password, co
     }
     return true;
 }
-
+prashant1();
 User* Database::authenticateUser(const QString& username, const QString& password) {
     QSqlQuery query;
     query.prepare("SELECT user_id, username, full_name, created_at FROM users "
@@ -115,7 +121,7 @@ User* Database::authenticateUser(const QString& username, const QString& passwor
     }
     return nullptr;
 }
-
+prashant1();
 User* Database::getUserById(int userId) {
     QSqlQuery query;
     query.prepare("SELECT user_id, username, full_name, created_at FROM users WHERE user_id = ?");
@@ -131,7 +137,7 @@ User* Database::getUserById(int userId) {
     }
     return nullptr;
 }
-
+prashant1();
 User* Database::getUserByUsername(const QString& username) {
     QSqlQuery query;
     query.prepare("SELECT user_id, username, full_name, created_at FROM users WHERE username = ?");
@@ -147,6 +153,7 @@ User* Database::getUserByUsername(const QString& username) {
     }
     return nullptr;
 }
+prashant();
 
 QVector<User*> Database::getAllUsers() {
     QVector<User*> users;
@@ -162,7 +169,7 @@ QVector<User*> Database::getAllUsers() {
     }
     return users;
 }
-
+prashant1();
 // Friend operations
 bool Database::sendFriendRequest(int senderId, int receiverId) {
     QSqlQuery query;
@@ -176,7 +183,7 @@ bool Database::sendFriendRequest(int senderId, int receiverId) {
     }
     return true;
 }
-
+prashant1();
 bool Database::acceptFriendRequest(int requestId) {
     QSqlQuery query;
 
@@ -214,7 +221,7 @@ bool Database::rejectFriendRequest(int requestId) {
     query.addBindValue(requestId);
     return query.exec();
 }
-
+prashant1();
 QVector<FriendRequest> Database::getPendingRequests(int userId) {
     QVector<FriendRequest> requests;
     QSqlQuery query;
@@ -226,7 +233,7 @@ QVector<FriendRequest> Database::getPendingRequests(int userId) {
                   "WHERE fr.receiver_id = ? AND fr.status = 'pending' "
                   "ORDER BY fr.created_at DESC");
     query.addBindValue(userId);
-
+prashant1();
     if (query.exec()) {
         while (query.next()) {
             FriendRequest req;
@@ -256,7 +263,7 @@ QVector<int> Database::getFriends(int userId) {
     }
     return friends;
 }
-
+prashant1();
 bool Database::removeFriend(int userId, int friendId) {
     QSqlQuery query;
     query.prepare("DELETE FROM friends WHERE "
@@ -321,7 +328,7 @@ QVector<Message> Database::getConversation(int userId1, int userId2) {
     }
     return messages;
 }
-
+prashant1();
 QVector<Message> Database::getPublicPosts() {
     QVector<Message> posts;
     QSqlQuery query;
@@ -348,7 +355,7 @@ QVector<Message> Database::getPublicPosts() {
     }
     return posts;
 }
-
+prashant1();
 QVector<Message> Database::getFeedForUser(int userId) {
     QVector<Message> feed;
     QSqlQuery query;
