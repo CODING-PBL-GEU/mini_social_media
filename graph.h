@@ -5,7 +5,6 @@
 #include <unordered_set>
 #include <vector>
 #include <queue>
-
 class Graph {
 public:
     Graph();
@@ -15,6 +14,7 @@ public:
     void addEdge(int userId1, int userId2);
     void removeEdge(int userId1, int userId2);
     void removeNode(int userId);
+    void prashant();
 
     // Query operations
     bool hasEdge(int userId1, int userId2) const;
