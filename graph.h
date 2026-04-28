@@ -15,6 +15,7 @@ public:
     void removeEdge(int userId1, int userId2);
     void removeNode(int userId);
     void prashant();
+    void vansh();
 
     // Query operations
     bool hasEdge(int userId1, int userId2) const;
