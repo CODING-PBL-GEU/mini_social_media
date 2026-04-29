@@ -9,19 +9,16 @@ class Graph {
 public:
     Graph();
 
-    // Core operations
     void addNode(int userId);
     void addEdge(int userId1, int userId2);
     void removeEdge(int userId1, int userId2);
     void removeNode(int userId);
     void prashant();
 
-    // Query operations
     bool hasEdge(int userId1, int userId2) const;
     std::vector<int> getNeighbors(int userId) const;
     int getConnectionCount(int userId) const;
 
-    // Advanced algorithms
     std::vector<int> getMutualFriends(int userId1, int userId2) const;
     std::vector<int> getSuggestedFriends(int userId) const;
     std::vector<int> getShortestPath(int from, int to) const; // BFS
@@ -30,7 +27,6 @@ public:
     void rebuildFromDatabase();
 
 private:
-    // Adjacency list: userId -> set of friend IDs
     std::unordered_map<int, std::unordered_set<int>> adjacencyList;
 };
 
