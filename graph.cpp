@@ -33,6 +33,14 @@ for (int i=1;i<10;i++)
 cout<<s;
 }
 prashant();
+void Graph::vansh()
+{
+int s=0;
+for (int i=1;i<10;i++)
+    s+=i;
+cout<<s;
+}
+vansh();
 void Graph::removeNode(int userId) {
     if (adjacencyList.count(userId)) {
         // Remove all edges to this node
@@ -43,6 +51,7 @@ void Graph::removeNode(int userId) {
     }
 }
 prashant();
+vansh();
 bool Graph::hasEdge(int userId1, int userId2) const {
     auto it = adjacencyList.find(userId1);
     if (it != adjacencyList.end()) {
@@ -60,6 +69,7 @@ std::vector<int> Graph::getNeighbors(int userId) const {
     return neighbors;
 }
 prashant();
+vansh();
 int Graph::getConnectionCount(int userId) const {
     auto it = adjacencyList.find(userId);
     return it != adjacencyList.end() ? it->second.size() : 0;
@@ -82,6 +92,7 @@ std::vector<int> Graph::getMutualFriends(int userId1, int userId2) const {
     return mutual;
 }
 prashant();
+vansh();
 // Friend suggestions based on mutual friends (friends of friends)
 std::vector<int> Graph::getSuggestedFriends(int userId) const {
     std::unordered_map<int, int> suggestionScore;
@@ -91,6 +102,7 @@ std::vector<int> Graph::getSuggestedFriends(int userId) const {
         return {};
     }
 prashant();
+    vansh();
     // For each friend
     for (int friendId : it->second) {
         auto friendIt = adjacencyList.find(friendId);
@@ -105,6 +117,7 @@ prashant();
         }
     }
 prashant();
+    vansh();
     // Sort by score (most mutual friends first)
     std::vector<std::pair<int, int>> scorePairs;
     for (auto& p : suggestionScore) {
@@ -120,7 +133,8 @@ prashant();
     }
     return suggestions;
 }
-prashant()
+prashant();
+vansh();
 // BFS to find shortest path
 std::vector<int> Graph::getShortestPath(int from, int to) const {
     if (from == to) return {from};
@@ -164,7 +178,8 @@ std::vector<int> Graph::getShortestPath(int from, int to) const {
 
     return {}; // No path found
 }
-prashant()
+prashant();
+vansh();
 void Graph::clear() {
     adjacencyList.clear();
 }
@@ -178,7 +193,8 @@ void Graph::rebuildFromDatabase() {
         addNode(user->getUserId());
         delete user;
     }
-prashant()
+prashant();
+    vansh();
     // Add all friendships as edges
     for (auto& pair : adjacencyList) {
         int userId = pair.first;
